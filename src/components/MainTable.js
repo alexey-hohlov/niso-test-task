@@ -6,14 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { dataSlice } from "../store/reducers/DataSlice";
 
 // components import
-import { Buttons, InputForm, LoadingBadge } from ".";
+import { Buttons, InputForm, LoadingBadge, DetailedData } from ".";
 
 function MainTable() {
-    const { data, isLoading, formActive } = useSelector(
+    const { data, isLoading, formActive, detailsShown, details } = useSelector(
         (state) => state.dataReducer
     );
 
-    const { setData, setLoading, setForm } = dataSlice.actions;
+    const { setData, setLoading, setForm, setShown, setDetails } =
+        dataSlice.actions;
     const dispatch = useDispatch();
 
     const handleBigData = () => {
@@ -36,6 +37,11 @@ function MainTable() {
         dispatch(setForm(true));
     };
 
+    const handleDetails = (item) => {
+        dispatch(setShown(true));
+        dispatch(setDetails(item));
+    };
+
     return (
         <div>
             <div className="container">
@@ -45,7 +51,10 @@ function MainTable() {
                     handleForm={handleForm}
                 />
 
-                {formActive && <InputForm setForm={setForm}/>}
+                {formActive && <InputForm setForm={setForm} />}
+                {detailsShown && (
+                    <DetailedData details={details} setShown={setShown} />
+                )}
 
                 {isLoading ? (
                     <LoadingBadge />
@@ -62,7 +71,13 @@ function MainTable() {
                         </thead>
                         <tbody>
                             {data.map((item, index) => (
-                                <tr key={index} style={{ cursor: "pointer" }}>
+                                <tr
+                                    key={index}
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => {
+                                        handleDetails(item);
+                                    }}
+                                >
                                     <td>{item.id}</td>
                                     <td>{item.firstName}</td>
                                     <td>{item.lastName}</td>

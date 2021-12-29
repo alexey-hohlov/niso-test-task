@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     formActive: false,
     isLoading: false,
+    detailsShown: false,
     data: [],
+    details: {},
 };
 
 export const dataSlice = createSlice({
@@ -18,6 +20,12 @@ export const dataSlice = createSlice({
         },
         setForm(state, action) {
             state.formActive = action.payload;
+        },
+        setShown(state, action) {
+            state.detailsShown = action.payload;
+        },
+        setDetails(state, action) {
+            state.details = action.payload;
         },
     },
 });
