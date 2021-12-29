@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     formActive: false,
-    isLoading: true,
+    isLoading: false,
     data: [],
 };
 
