@@ -1,10 +1,12 @@
+// API import
 import { apiCall } from "../api/API";
 
 // import reducers
 import { useDispatch, useSelector } from "react-redux";
 import { dataSlice } from "../store/reducers/DataSlice";
 
-import { Buttons } from ".";
+// components import
+import { Buttons, LoadingBadge } from ".";
 
 function MainTable() {
     const { data, isLoading } = useSelector((state) => state.dataReducer);
@@ -34,19 +36,20 @@ function MainTable() {
                 handleBigData={handleBigData}
                 handleSmallData={handleSmallData}
             />
-            <table className="table table-striped me-3">
-                <thead>
-                    <tr className="table-primary">
-                        <th scope="col">id</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                    </tr>
-                </thead>
-                {isLoading ? (
-                    <h1>Data is loading, please wait...</h1>
-                ) : (
+
+            {isLoading ? (
+                <LoadingBadge />
+            ) : (
+                <table className="table table-striped me-3">
+                    <thead>
+                        <tr className="table-primary">
+                            <th scope="col">id</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         {data.map((item, index) => (
                             <tr key={index} style={{ cursor: "pointer" }}>
@@ -58,8 +61,8 @@ function MainTable() {
                             </tr>
                         ))}
                     </tbody>
-                )}
-            </table>
+                </table>
+            )}
         </div>
     );
 }
