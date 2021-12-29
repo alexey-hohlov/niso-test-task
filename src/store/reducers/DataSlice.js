@@ -16,6 +16,9 @@ export const dataSlice = createSlice({
         setLoading(state, action) {
             state.isLoading = action.payload;
         },
+        setForm(state, action) {
+            state.formActive = action.payload;
+        },
     },
 });
 
