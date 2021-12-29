@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     formActive: false,
-    isLoading: true,
+    isLoading: false,
     data: [],
 };
 
@@ -12,6 +12,9 @@ export const dataSlice = createSlice({
     reducers: {
         setData(state, action) {
             state.data = action.payload;
+        },
+        setLoading(state, action) {
+            state.isLoading = action.payload;
         },
     },
 });
