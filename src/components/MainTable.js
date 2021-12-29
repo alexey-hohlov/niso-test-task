@@ -13,7 +13,9 @@ function MainTable() {
     const dispatch = useDispatch();
 
     const handleBigData = () => {
+        dispatch(setLoading(true));
         apiCall.getBigData().then((response) => {
+            dispatch(setLoading(false));
             dispatch(setData(response.data));
         });
     };
