@@ -13,11 +13,9 @@ function MainTable() {
     const dispatch = useDispatch();
 
     const handleBigData = () => {
-        // apiCall.getBigData().then((response) => {
-        //     console.log(response);
-        //     dispatch(setData(response.data));
-        // });
-        console.log("Big Data");
+        apiCall.getBigData().then((response) => {
+            dispatch(setData(response.data));
+        });
     };
 
     const handleSmallData = () => {
