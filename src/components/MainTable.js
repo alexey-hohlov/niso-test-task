@@ -1,4 +1,14 @@
-function MainTable({ data, handleDetails }) {
+import { useDispatch } from "react-redux";
+
+function MainTable({ data, setDetails, setShown}) {
+    const dispatch = useDispatch();
+
+    // show clicked item details
+    const handleDetails = (item) => {
+        dispatch(setShown(true));
+        dispatch(setDetails(item));
+    };
+
     return (
         <table className="table table-striped me-3">
             <thead>

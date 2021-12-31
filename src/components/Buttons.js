@@ -1,4 +1,33 @@
-function Buttons({ handleBigData, handleSmallData, handleForm }) {
+import { useDispatch } from "react-redux";
+
+// API import
+import { apiCall } from "../api/API";
+
+function Buttons({ setLoading, setData, setForm }) {
+    const dispatch = useDispatch();
+
+    // get 1000 rows data
+    const handleBigData = () => {
+        dispatch(setLoading(true));
+        apiCall.getBigData().then((response) => {
+            dispatch(setLoading(false));
+            dispatch(setData(response.data));
+        });
+    };
+
+    // get 32 rows data
+    const handleSmallData = () => {
+        dispatch(setLoading(true));
+        apiCall.getSmallData().then((response) => {
+            dispatch(setLoading(false));
+            dispatch(setData(response.data));
+        });
+    };
+
+    // open form for user input
+    const handleForm = () => {
+        dispatch(setForm(true));
+    };
     return (
         <div className="m-3">
             <button
