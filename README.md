@@ -3,10 +3,10 @@
 ## Задача:
 Требуется разработать React-приложение, для вывода таблиц с данными.
 
-# Схемы запросов для получения данных:
+## Схемы запросов для получения данных:
 
-# Малый объем данных:
-# `https://filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
+### Малый объем данных:
+### `https://filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
 
 ## Требуемый функционал:
 * Вывод маленького объема данных на 32 строки - ✅;
