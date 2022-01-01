@@ -2,7 +2,7 @@ import axios from "axios";
 
 //Create axios base url
 const baseApi = axios.create({
-    baseURL: "http://www.filltext.com/",
+    baseURL: "https://filltext.com/",
 });
 
 //Get data from api;
