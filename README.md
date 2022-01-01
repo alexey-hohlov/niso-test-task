@@ -3,14 +3,6 @@
 ## Задача:
 Требуется разработать React-приложение, для вывода таблиц с данными.
 
-## Схемы запросов для получения данных:
-
-### 32 строки:
-### `https://filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
-
-### 1000 строк:
-### `https://filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}}`
-
 ## Требуемый функционал:
 * Вывод маленького объема данных на 32 строки - ✅;
 * Вывод большого объема данных на 1000 строк - ✅;
@@ -23,6 +15,14 @@
 * Вывод детальных данных по выбранному элементу таблицы - ✅;
 
 ![Untitled](https://user-images.githubusercontent.com/79412122/147670886-366f4996-c48b-4bdd-81be-b3c025f83ac0.png)
+
+## Схемы запросов для получения данных:
+
+### 32 строки:
+### `https://filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
+
+### 1000 строк:
+### `https://filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}}`
 
 ## Yarn scripts
 
