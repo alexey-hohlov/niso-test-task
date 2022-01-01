@@ -5,8 +5,11 @@
 
 ## Схемы запросов для получения данных:
 
-### Малый объем данных:
+### 32 строки:
 ### `https://filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
+
+### 1000 строк:
+### `https://filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}}`
 
 ## Требуемый функционал:
 * Вывод маленького объема данных на 32 строки - ✅;
