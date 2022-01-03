@@ -13,16 +13,20 @@ function InputForm({ setForm, setNewRow }) {
     );
 
     // reducers for user input
-    const { setName, setLast, setEmail, setPhone } = userInputSlice.actions;
+    const { setName, setLast, setEmail, setPhone, setId, reset } =
+        userInputSlice.actions;
 
     const dispatch = useDispatch();
 
     // dispatching value from input to store
     const handleInput = (reducer, value) => {
+        // generating random id for item
+        dispatch(setId(Math.floor(1 + Math.random() * 999)));
+
         dispatch(reducer(value));
     };
 
-    // disbling button if some field is empty
+    // disabling button if some field is empty
     const handleButton = () => {
         if (firstName === "") {
             return true;
@@ -75,6 +79,7 @@ function InputForm({ setForm, setNewRow }) {
                 onClick={() => {
                     dispatch(setNewRow(userInput));
                     dispatch(setForm(false));
+                    dispatch(reset())
                 }}
             >
                 Submit

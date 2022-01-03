@@ -24,6 +24,10 @@ export const userInputSlice = createSlice({
         setPhone(state, action) {
             state.phone = action.payload;
         },
+        setId(state, action) {
+            state.id = action.payload;
+        },
+        reset: () => initialState,
     },
 });
 
