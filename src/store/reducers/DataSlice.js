@@ -5,7 +5,6 @@ const initialState = {
     isLoading: false,
     detailsShown: false,
     data: [],
-    userInput: {},
     details: {},
 };
 
