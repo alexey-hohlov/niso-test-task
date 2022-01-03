@@ -8,6 +8,10 @@ function InputForm({ setForm, setNewRow }) {
     // state from redux store
     const userInput = useSelector((state) => state.userInputReducer);
 
+    const { firstName, lastName, email, phone } = useSelector(
+        (state) => state.userInputReducer
+    );
+
     // reducers for user input
     const { setName, setLast, setEmail, setPhone } = userInputSlice.actions;
 
@@ -16,6 +20,22 @@ function InputForm({ setForm, setNewRow }) {
     // dispatching value from input to store
     const handleInput = (reducer, value) => {
         dispatch(reducer(value));
+    };
+
+    // disbling button if some field is empty
+    const handleButton = () => {
+        if (firstName === "") {
+            return true;
+        }
+        if (lastName === "") {
+            return true;
+        }
+        if (email === "") {
+            return true;
+        }
+        if (phone === "") {
+            return true;
+        }
     };
 
     return (
@@ -49,6 +69,7 @@ function InputForm({ setForm, setNewRow }) {
                 ></input>
             </div>
             <button
+                disabled={handleButton()}
                 type="submit"
                 className="btn btn-primary"
                 onClick={() => {
