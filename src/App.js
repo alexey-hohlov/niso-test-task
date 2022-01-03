@@ -20,11 +20,11 @@ function App() {
     );
 
     // reducers
-    const { setData, setLoading, setForm, setShown, setDetails, setUserInput } =
+    const { setData, setLoading, setForm, setShown, setDetails, setNewRow } =
         dataSlice.actions;
 
     // const test = useSelector((state) => state.dataReducer)
-    
+
     return (
         <div className="App">
             <div className="container">
@@ -34,7 +34,9 @@ function App() {
                     setForm={setForm}
                 />
 
-                {formActive && <InputForm setForm={setForm} setUserInput={setUserInput} />}
+                {formActive && (
+                    <InputForm setForm={setForm} setNewRow={setNewRow} />
+                )}
                 {detailsShown && (
                     <DetailedData details={details} setShown={setShown} />
                 )}

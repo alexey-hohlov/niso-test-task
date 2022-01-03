@@ -4,7 +4,7 @@ import { userInputSlice } from "../store/reducers/UserSlice";
 
 import { useDispatch } from "react-redux";
 
-function InputForm({ setForm }) {
+function InputForm({ setForm, setNewRow }) {
     // state from redux store
     const userInput = useSelector((state) => state.userInputReducer);
 
@@ -52,6 +52,7 @@ function InputForm({ setForm }) {
                 type="submit"
                 className="btn btn-primary"
                 onClick={() => {
+                    dispatch(setNewRow(userInput));
                     dispatch(setForm(false));
                 }}
             >

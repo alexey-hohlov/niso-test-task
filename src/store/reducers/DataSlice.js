@@ -27,6 +27,9 @@ export const dataSlice = createSlice({
         setDetails(state, action) {
             state.details = action.payload;
         },
+        setNewRow(state, action) {
+            state.data.unshift(action.payload);
+        },
     },
 });
 
