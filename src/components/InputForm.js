@@ -79,7 +79,7 @@ function InputForm({ setForm, setNewRow }) {
                 onClick={() => {
                     dispatch(setNewRow(userInput));
                     dispatch(setForm(false));
-                    dispatch(reset())
+                    dispatch(reset());
                 }}
             >
                 Submit

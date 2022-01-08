@@ -6,6 +6,9 @@ const initialState = {
     detailsShown: false,
     data: [],
     details: {},
+    searchData: [],
+    searchInput: "",
+    searchActive: false,
 };
 
 export const dataSlice = createSlice({
@@ -29,6 +32,20 @@ export const dataSlice = createSlice({
         },
         setNewRow(state, action) {
             state.data.unshift(action.payload);
+        },
+        setSearchData(state, action) {
+            state.searchData = [];
+            state.data.filter((item) => {
+                if (JSON.stringify(item).includes(action.payload)) {
+                    state.searchData.push(item);
+                }
+            });
+        },
+        setSearchInput(state, action) {
+            state.searchInput = action.payload;
+        },
+        setSearchActive(state, action) {
+            state.searchActive = action.payload;
         },
     },
 });

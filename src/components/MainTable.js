@@ -1,12 +1,24 @@
 import { useDispatch } from "react-redux";
 
-function MainTable({ data, setDetails, setShown}) {
+function MainTable({ data, setDetails, setShown, searchActive, searchData }) {
     const dispatch = useDispatch();
 
     // show clicked item details
     const handleDetails = (item) => {
         dispatch(setShown(true));
         dispatch(setDetails(item));
+    };
+    
+    // show all data from api or only filtred 
+    const handleData = () => {
+        switch (searchActive) {
+            case true:
+                return searchData;
+            case false:
+                return data;
+            default:
+                return data;
+        }
     };
 
     return (
@@ -21,7 +33,7 @@ function MainTable({ data, setDetails, setShown}) {
                 </tr>
             </thead>
             <tbody>
-                {data.map((item, index) => (
+                {handleData().map((item, index) => (
                     <tr
                         key={index}
                         style={{ cursor: "pointer" }}
