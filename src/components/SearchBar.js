@@ -11,7 +11,7 @@ function Searchbar() {
     const { setSearchInput, setSearchData, setSearchActive } =
         dataSlice.actions;
 
-    // checking search input 
+    // checking search input
     const handleActive = () => {
         if (searchInput === "") {
             dispatch(setSearchActive(false));
@@ -21,7 +21,12 @@ function Searchbar() {
     };
 
     return (
-        <form className="d-flex mb-3">
+        <form
+            className="d-flex mb-3"
+            onSubmit={(e) => {
+                e.preventDefault();
+            }}
+        >
             <input
                 value={searchInput}
                 onChange={(e) => {
